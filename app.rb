@@ -44,11 +44,11 @@ post '/admin' do
   end
 end
 
-get '/book' do
+get '/book' do # visit
   erb :book
 end
 
-post '/' do
+post '/book' do
   @user_name = params[:user_name]
   @phone = params[:phone]
   @date_time = params[:date_time]
@@ -58,7 +58,7 @@ post '/' do
   f.write("User: #{@user_name}, Phone: #{@phone}, Date and Time: #{@date_time}, HairDresser: #{@hair_dresser} \n")
   f.close
 
-  halt erb "Уважаемый #{@user_name}, Вы зарегистрировались на #{@date_time} к мастеру: #{@hair_dresser}. Спасибо"
+  erb "Уважаемый #{@user_name}, Вы зарегистрировались на #{@date_time} к мастеру: #{@hair_dresser}. Спасибо"
 end
 
 post '/login/attempt' do
