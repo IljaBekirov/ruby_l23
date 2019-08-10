@@ -53,12 +53,13 @@ post '/book' do
   @phone = params[:phone]
   @date_time = params[:date_time]
   @hair_dresser = params[:hair_dresser]
+  @color = params[:color]
 
   f = File.open('./public/users.txt', 'a')
   f.write("User: #{@user_name}, Phone: #{@phone}, Date and Time: #{@date_time}, HairDresser: #{@hair_dresser} \n")
   f.close
 
-  erb "Уважаемый #{@user_name}, Вы зарегистрировались на #{@date_time} к мастеру: #{@hair_dresser}. Спасибо"
+  erb "Уважаемый #{@user_name}, Вы зарегистрировались на #{@date_time} к мастеру: #{@hair_dresser}. Вы выбрали #{@color} цвет. Спасибо"
 end
 
 post '/login/attempt' do
